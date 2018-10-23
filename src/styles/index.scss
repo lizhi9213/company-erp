@@ -1,0 +1,381 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: normal;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+code {
+  background: #eef1f6;
+  padding: 15px 16px;
+  margin-bottom: 20px;
+  display: block;
+  line-height: 36px;
+  font-size: 15px;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  a {
+    color: #337ab7;
+    cursor: pointer;
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+.warn-content {
+  background: rgba(66, 185, 131, .1);
+  border-radius: 2px;
+  padding: 16px;
+  padding: 1rem;
+  font-size: 14px;
+  line-height: 1.6rem;
+  word-spacing: .05rem;
+  a {
+    color: #42b983;
+    font-weight: 600;
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+  &.draft {
+    background: #d0d0d0;
+  }
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+body {
+  /* 重置全局iview Model 弹出层*/
+  /* 重写遮罩和弹出的层级*/
+  .ivu-modal-mask {
+    z-index: 1002;
+  }
+  .ivu-modal-wrap {
+    z-index: 1003;
+  }
+  /*自定义纯展示Modal*/
+  .show-msg-modal {
+    .ivu-modal-body {
+      padding-bottom: 36px;
+    }
+    .ivu-modal-footer {
+      display: none;
+    }
+  }
+  .show-creat-modal {
+    .ivu-modal-body {
+      padding: 0px;
+    }
+    .ivu-modal-footer {
+      display: none;
+    }
+  }
+  /*流程图右侧弹出*/
+  .flow-right-model {
+    .ivu-modal-wrap {
+      .ivu-modal {
+        .ivu-modal-content {
+          height: 100%;
+          overflow: hidden;
+          .ivu-modal-close {
+            display: none;
+          }
+          .ivu-modal-body {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 10px;
+            overflow: hidden;
+            overflow-y: auto;
+          }
+          .ivu-modal-footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 8;
+          }
+        }
+      }
+    }
+  }
+  /* 流程发起申请modal样式 */
+  .apply-right-model {
+    .ivu-modal-wrap {
+      .ivu-modal {
+        .ivu-modal-content {
+          height: 100%;
+          overflow: hidden;
+          .ivu-modal-close {
+            z-index: 3;
+          }
+          .ivu-modal-header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 2;
+          }
+          .ivu-modal-body {
+            padding: 0;
+            padding-top: 58px;
+            padding-bottom: 40px;
+            height: 100%;
+            overflow: hidden;
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+  }
+  /* 全局table操作样式*/
+  .opera_box {
+    padding: 12px 0;
+    min-width: auto;
+    .opera_ul {
+      >li {
+        list-style: none;
+        line-height: 36px;
+        padding: 0 20px;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover {
+          background-color: #ecf5ff;
+          color: #66b1ff;
+        }
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: #F5F5F5;
+  }
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .1);
+  }
+}
+
+.app-container {
+  /*自定义全局card头部样式*/
+  .card-title-xe {
+    position: relative;
+    margin: 0;
+    font-size: 14px;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 3px;
+      height: 100%;
+      top: -1px;
+      left: -19px;
+      background-color: #0bb27a;
+    }
+    .title-color-xe {
+      color: #0bb27a;
+    }
+  }
+  /*右侧fade动画效果Model*/
+  .iview-right-model {
+    .ivu-modal-wrap {
+      .ivu-modal {
+        .ivu-modal-content {
+          height: 100%;
+          overflow: hidden;
+          .ivu-modal-close {
+            z-index: 3;
+          }
+          .ivu-modal-header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 2;
+          }
+          .ivu-modal-body {
+            padding-top: 50px;
+            padding-bottom: 62px;
+            height: 100%;
+            overflow: hidden;
+            overflow-y: auto;
+          }
+          .ivu-modal-footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 自定义返回顶部样式
+.ivu-back-top {
+  .ivu-back-top-inner {
+    background-color: rgba(89, 201, 147, 0.78);
+  }
+}
